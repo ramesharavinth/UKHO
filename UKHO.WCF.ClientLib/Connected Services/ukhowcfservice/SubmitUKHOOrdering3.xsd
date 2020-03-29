@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="https://enavigator.ukho.gov.uk/1.0" elementFormDefault="qualified" targetNamespace="https://enavigator.ukho.gov.uk/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://adstrn.ukho.gov.uk/ServiceB2B/SubmitUKHOOrdering.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UKHO.B2B.Contracts" />
+  <xs:import schemaLocation="https://adstrn.ukho.gov.uk/ServiceB2B/SubmitUKHOOrdering.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UKHO.B2B.Contracts.Messages" />
+  <xs:element name="SubmitOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UKHO.B2B.Contracts.Messages" minOccurs="0" name="request" nillable="true" type="q1:SubmitOrderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Order">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADPRenewType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ARCSRenewType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryFromDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UKHO.B2B.Contracts" name="DeliveryMethod" type="q2:DeliveryMethod" />
+      <xs:element minOccurs="0" name="DeliveryToDate" nillable="true" type="xs:dateTime" />
+      <xs:element name="DistId" type="xs:int" />
+      <xs:element name="LicenceId" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UKHO.B2B.Contracts" name="OrderItems" nillable="true" type="q3:ArrayOfOrderItem" />
+      <xs:element minOccurs="0" name="PurchaseOrderNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+  <xs:element name="SubmitOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UKHO.B2B.Contracts.Messages" minOccurs="0" name="SubmitOrderResult" nillable="true" type="q4:SubmitOrderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UKHO.B2B.Contracts.Messages" minOccurs="0" name="request" nillable="true" type="q5:GetOrderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UKHO.B2B.Contracts.Messages" minOccurs="0" name="GetOrderResult" nillable="true" type="q6:GetOrderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHoldings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UKHO.B2B.Contracts.Messages" minOccurs="0" name="request" nillable="true" type="q7:GetHoldingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHoldingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UKHO.B2B.Contracts.Messages" minOccurs="0" name="GetHoldingsResult" nillable="true" type="q8:GetHoldingResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
